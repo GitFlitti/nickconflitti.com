@@ -1,0 +1,146 @@
+/* ---- Design tokens ---------------------------------------------------- */
+:root {
+  --bg: #ffffff;
+  --surface: #f6f6f4;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --accent: #2f6f4f;
+  --border: #e5e5e1;
+  --maxw: 42rem;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121312;
+    --surface: #1b1c1a;
+    --text: #ececea;
+    --muted: #9a9a95;
+    --accent: #6bb88f;
+    --border: #2a2b28;
+  }
+}
+
+/* ---- Reset-ish -------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Layout ----------------------------------------------------------- */
+.page {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) 1.5rem 4rem;
+}
+
+section { margin-top: 3rem; }
+
+h1 {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin: 0.6rem 0 0;
+}
+
+h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 1rem;
+  font-weight: 600;
+}
+
+/* ---- Bio -------------------------------------------------------------- */
+.bio p {
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+/* ---- Contact ---------------------------------------------------------- */
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.contact-list li {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  align-items: baseline;
+}
+.contact-list .label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---- Work ------------------------------------------------------------- */
+.work-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.work-item {
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--border);
+}
+.work-item:last-child { border-bottom: 1px solid var(--border); }
+
+.work-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.work-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.work-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.work-desc {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+}
+
+/* ---- Links ------------------------------------------------------------ */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+a:hover { text-decoration: underline; }
+
+/* ---- Footer ----------------------------------------------------------- */
+.foot {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.foot p { margin: 0; }
+
+/* ---- Small screens ---------------------------------------------------- */
+@media (max-width: 480px) {
+  .contact-list li { grid-template-columns: 5rem 1fr; }
+}
