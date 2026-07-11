@@ -18,6 +18,11 @@
   }
 }
 
+/* On larger desktop viewports, widen the content measure by 20% (40rem → 48rem). */
+@media (min-width: 1200px) {
+  :root { --measure: 52rem; }
+}
+
 /* ---- Reset-ish -------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
